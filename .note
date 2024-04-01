@@ -1,0 +1,35 @@
+Rancangan Nama User ( REVISI )
+A. PPAK3 (Perusahaan Pengguna Alat K3 P2AK3)
+1. Pimpinan P2AK3
+2. Admin P2AK3
+3. PIC P2AK3
+
+B. IPK3 (Instansi Pemeriksa K3)
+1. Pimpinan Inspector K3 (PIPK3)
+2. Tu IK3
+3. Inspector K3 (IK3)
+4. Asisten IK3
+
+C. Unit Pengawas Spesialis K3 (UNWASLIS K3)
+1. Atasan Waslis K3 (Atwaslis K3)
+2. Pengawas Spesialis K3 (Waslis K3)
+3. Admin Waslis K3
+4. Staf Waslis K3
+
+D. Instansi Validator AK3 (VALAK3)
+1. Kadis
+2. Subkord K3
+3. TU Valak3
+4. Valak3
+5. Ast. Valak3
+
+E. Badan Perijinan (BP) ( Sebelumnya OSS )
+1. Pimpinan BP
+2. TU BP
+
+Summary
+A. PPAK3 (Customer)
+B. IPK3 ( vendor/pjk3)
+C. UNWASLIS_K3 (Pemeriksa dari Pemerintah)
+D. VALAK3 (Pemerintah sebagai Validator)
+E. BP (Badan Perijinan Provinsi)
