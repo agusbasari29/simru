@@ -5,7 +5,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/sip/simru/database"
-	"github.com/sip/simru/entity"
 	"gorm.io/gorm"
 )
 
@@ -15,7 +14,7 @@ var (
 
 func main() {
 	defer database.CloseDatabaseConnection(db)
-	db.AutoMigrate(&entity.UsersPAK3{}, &entity.UsersP2AK3{})
+	// db.AutoMigrate()
 	g := gin.Default()
 	gin.SetMode(gin.ReleaseMode)
 	g.GET("/", func(ctx *gin.Context) {
