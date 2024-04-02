@@ -1,6 +1,6 @@
 package request
 
-type userRegisterRequest struct {
+type UserRegisterRequest struct {
 	Name           string `json:"name"`
 	NIP            string `json:"nip"`
 	Username       string `json:"username"`
@@ -13,7 +13,3 @@ type userRegisterRequest struct {
 	SectionID      uint64 `json:"section_id"`
 }
 
-type userLoginRequest struct {
-	username string `json:"username"`
-	password string `json:"password"`
-}
