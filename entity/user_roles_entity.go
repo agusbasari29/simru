@@ -7,5 +7,6 @@ type UserRoles struct {
 	ID        uint64 `gorm:"primaryKey;autoIncrement"`
 	Role      string
 	RoleName  string
-	SectionID Sections
+	SectionID uint64
+	Sections  Sections `gorm:"foreignKey:SectionID"`
 }

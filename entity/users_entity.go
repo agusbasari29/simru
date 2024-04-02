@@ -7,6 +7,8 @@ type Users struct {
 	ID         uint64 `gorm:"primaryKey;autoIncrement"`
 	Username   string
 	Password   string
-	PersonID   Persons
-	UserRoleID UserRoles
+	PersonID   uint64
+	Person     Persons `gorm:"foreignKey:PersonID"`
+	UserRoleID uint64
+	UserRole   UserRoles `gorm:"foreignKey:UserRoleID"`
 }
