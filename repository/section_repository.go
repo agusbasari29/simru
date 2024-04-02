@@ -14,7 +14,15 @@ func NewSectionRepository(db *gorm.DB) *sectionRepository {
 }
 
 func (r *sectionRepository) CreateSection(section entity.Sections) (entity.Sections, error) {
-	err := r.db.Raw("INSERT INTO sections (section_name, authority, created_at) VALUES (@SectionName, @Authhority, @CreatedAt)", section).Create(&section).Error
+	err := r.db.Raw("INSERT INTO sections (section_name, authority, created_at) VALUES (@SectionName, @Authority, @CreatedAt)", section).Create(&section).Error
+	if err != nil {
+		return section, err
+	}
+	return section, nil
+}
+
+func (r *sectionRepository) UpdateSection(section entity.Sections) (entity.Sections, error) {
+	err := r.db.Raw("").Exec("").Error
 	if err != nil {
 		return section, err
 	}

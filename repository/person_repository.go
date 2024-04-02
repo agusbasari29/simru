@@ -1,6 +1,9 @@
 package repository
 
-import "gorm.io/gorm"
+import (
+	"github.com/sip/simru/entity"
+	"gorm.io/gorm"
+)
 
 type personRepository struct {
 	db *gorm.DB
@@ -8,4 +11,16 @@ type personRepository struct {
 
 func NewPersonRepository(db *gorm.DB) *personRepository {
 	return &personRepository{db}
+}
+
+func (r *personRepository) CreatePerson(person entity.Persons) (entity.Persons, error) {
+	err := r.db.Raw("INSERT INTO persons (name, nip, company_name, company_address, email, phone) VALUE (@Name, @NIP, @CompanyName, @CompanyAddress, @Email, @Phone)", person).Create(&person).Error
+	if err != nil {
+		return person, err
+	}
+	return person, nil
+}
+
+func (r *personRepository) GetPerson(){
+	
 }

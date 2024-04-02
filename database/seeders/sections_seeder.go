@@ -1,6 +1,8 @@
 package seeders
 
 import (
+	"time"
+
 	"github.com/sip/simru/entity"
 )
 
@@ -32,6 +34,7 @@ func SectionSeedersUp() {
 	for _, seed := range seeders {
 		section.SectionName = seed.SectionName
 		section.Authority = seed.Authority
+		section.CreatedAt = time.Now()
 		sectionRepo.CreateSection(section)
 	}
 }
