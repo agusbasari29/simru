@@ -15,7 +15,7 @@ var (
 )
 
 func Seeders() {
-	// SectionSeedersUp()
-	// UserRoleSeederUp()
+	SectionSeedersUp()
+	UserRoleSeederUp()
 	UsersSeederUp()
 }

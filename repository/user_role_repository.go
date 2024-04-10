@@ -5,6 +5,14 @@ import (
 	"gorm.io/gorm"
 )
 
+type UserRoleRepository interface {
+	CreateUserRole(role entity.UserRoles) (entity.UserRoles, error)
+	UpdateUserRole(role entity.UserRoles) (entity.UserRoles, error)
+	GetUserRole(role entity.UserRoles) (entity.UserRoles, error)
+	GetUserRoles() ([]entity.UserRoles, error)
+	DeleteUserRole(role entity.UserRoles) bool
+}
+
 type userRoleRepository struct {
 	db *gorm.DB
 }
@@ -19,4 +27,26 @@ func (r *userRoleRepository) CreateRole(role entity.UserRoles) (entity.UserRoles
 		return role, err
 	}
 	return role, nil
+}
+
+func (r *userRoleRepository) UpdateUserRole(role entity.UserRoles) (entity.UserRoles, error) {
+	err := r.db.Model(&entity.UserRoles{ID: role.ID}).Save(&role).Error
+	if err != nil {
+		return role, err
+	}
+	return role, nil
+}
+
+func (r *userRoleRepository) GetAllUserRoles() ([]entity.UserRoles, error) {
+	roles := []entity.UserRoles{}
+	err := r.db.Find(&roles).Error
+	if err != nil {
+		return roles, err
+	}
+	return roles, nil
+}
+
+func (r *userRoleRepository) DeleteUserRole(role entity.UserRoles) bool {
+	err := r.db.Delete(&role).Error
+	return err == nil
 }

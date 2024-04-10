@@ -6,6 +6,11 @@ import (
 )
 
 type UserRepository interface {
+	CreateUser(user entity.Users) (entity.Users, error)
+	UpdateUser(user entity.Users) (entity.Users, error)
+	GetUser(user entity.Users) (entity.Users, error)
+	GetUsers() ([]entity.Users, error)
+	DeleteUser(user entity.Users) bool
 }
 
 type userRepository struct {
@@ -17,9 +22,38 @@ func NewUserRepository(db *gorm.DB) *userRepository {
 }
 
 func (r *userRepository) CreateUser(user entity.Users) (entity.Users, error) {
-	err := r.db.Raw("INSERT INTO users (username, password, user_role_id, created_at) VALUE (@Username, @Password, @UserRoleID, @CreatedAt)", user).Create(&user).Error
+	err := r.db.Create(&user).Error
 	if err != nil {
 		return user, err
 	}
 	return user, nil
+}
+
+func (r *userRepository) UpdateUser(user entity.Users) (entity.Users, error) {
+	err := r.db.Model(&entity.Users{ID: user.ID}).Save(&user).Error
+	if err != nil {
+		return user, err
+	}
+	return user, nil
+}
+
+func (r *userRepository) GetUser(user entity.Users) (entity.Users, error) {
+	err := r.db.First(&user).Error
+	if err != nil {
+		return user, err
+	}
+	return user, nil
+}
+
+func (r *userRepository) GetUsers() ([]entity.Users, error) {
+	users := []entity.Users{}
+	err := r.db.Find(&users).Error
+	if err != nil {
+		return users, err
+	}
+	return users, nil
+}
+
+func (r *userRepository) DeleteUser(user entity.Users) bool {
+	return r.db.Delete(&user).Error == nil
 }

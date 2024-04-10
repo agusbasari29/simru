@@ -8,6 +8,7 @@ import (
 	"github.com/sip/simru/database"
 	"github.com/sip/simru/database/seeders"
 	"github.com/sip/simru/entity"
+	"github.com/sip/simru/routes"
 	"gorm.io/gorm"
 )
 
@@ -20,6 +21,8 @@ func main() {
 	db.AutoMigrate(&entity.Sections{}, &entity.UserRoles{}, &entity.Persons{}, &entity.Users{})
 	g := gin.Default()
 	gin.SetMode(gin.ReleaseMode)
+	routes.DefineAuthApiRoutes(g)
+	routes.DefineSecureApiRoutes(g)
 	g.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{
 			"message": "Test init project",
