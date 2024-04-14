@@ -38,7 +38,7 @@ func (r *userRepository) UpdateUser(user entity.Users) (entity.Users, error) {
 }
 
 func (r *userRepository) GetUser(user entity.Users) (entity.Users, error) {
-	err := r.db.First(&user).Error
+	err := r.db.Where("username = ?", user.Username).Take(&user).Error
 	if err != nil {
 		return user, err
 	}

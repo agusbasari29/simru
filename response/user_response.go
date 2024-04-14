@@ -10,8 +10,8 @@ import (
 type UserResponse struct {
 	ID        uint64           `json:"id"`
 	Username  string           `json:"username"`
-	UserRole  entity.UserRoles `json:"user_role"`
-	Person    entity.Persons   `json:"person"`
+	UserRole  UserRolesResponse `json:"user_role"`
+	Person    PersonResponse   `json:"person"`
 	CreatedAt time.Time        `json:"created_at"`
 	UpdatedAt time.Time        `json:"updated_at"`
 	DeletedAt gorm.DeletedAt   `json:"deleted_at"`
@@ -22,12 +22,12 @@ type UserDataResponse struct {
 	Credential interface{} `json:"credential"`
 }
 
-func UserResponseFormatter(user entity.Users) UserResponse {
+func UserResponseFormatter(user entity.Users, userRoles entity.UserRoles, person entity.Persons, sections entity.Sections) UserResponse {
 	formatter := UserResponse{}
 	formatter.ID = user.ID
 	formatter.Username = user.Username
-	formatter.UserRole = user.UserRole
-	formatter.Person = user.Person
+	formatter.UserRole = UserRolesResponseFormatter(userRoles, sections)
+	formatter.Person = PersonResponseFormatter(person)
 	formatter.CreatedAt = user.CreatedAt
 	formatter.UpdatedAt = user.UpdatedAt
 	formatter.DeletedAt = user.DeletedAt

@@ -8,8 +8,8 @@ import (
 type UserRoleRepository interface {
 	CreateUserRole(role entity.UserRoles) (entity.UserRoles, error)
 	UpdateUserRole(role entity.UserRoles) (entity.UserRoles, error)
-	GetUserRole(role entity.UserRoles) (entity.UserRoles, error)
-	GetUserRoles() ([]entity.UserRoles, error)
+	GetUserRoles(role entity.UserRoles) (entity.UserRoles, error)
+	GetAllUserRoles() ([]entity.UserRoles, error)
 	DeleteUserRole(role entity.UserRoles) bool
 }
 
@@ -21,7 +21,7 @@ func NewUserRoleRepository(db *gorm.DB) *userRoleRepository {
 	return &userRoleRepository{db}
 }
 
-func (r *userRoleRepository) CreateRole(role entity.UserRoles) (entity.UserRoles, error) {
+func (r *userRoleRepository) CreateUserRole(role entity.UserRoles) (entity.UserRoles, error) {
 	err := r.db.Raw("INSERT INTO user_roles (role, role_name, section_id, created_at) VALUE (@Role, @RoleName, @SectionID, @CreatedAt)", role).Create(&role).Error
 	if err != nil {
 		return role, err
@@ -35,6 +35,14 @@ func (r *userRoleRepository) UpdateUserRole(role entity.UserRoles) (entity.UserR
 		return role, err
 	}
 	return role, nil
+}
+
+func (r *userRoleRepository) GetUserRoles(userRole entity.UserRoles) (entity.UserRoles, error) {
+	err := r.db.First(&userRole).Error
+	if err != nil {
+		return userRole, err
+	}
+	return userRole, nil
 }
 
 func (r *userRoleRepository) GetAllUserRoles() ([]entity.UserRoles, error) {

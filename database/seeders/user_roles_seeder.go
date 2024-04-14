@@ -95,6 +95,6 @@ func UserRoleSeederUp() {
 		userRole.RoleName = seed.RoleName
 		userRole.SectionID = seed.SectionID
 		userRole.CreatedAt = time.Now()
-		userRoleRepo.CreateRole(userRole)
+		userRoleRepo.CreateUserRole(userRole)
 	}
 }

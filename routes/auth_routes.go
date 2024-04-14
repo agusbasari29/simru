@@ -15,10 +15,14 @@ func (r AuthRoutes) Route() []helper.Route {
 	db := database.SetupDBConnection()
 	userRepository := repository.NewUserRepository(db)
 	personRepository := repository.NewPersonRepository(db)
-	userService := services.NewUserService(userRepository, personRepository)
+	userRolesRepository := repository.NewUserRoleRepository(db)
+	sectionsRepository := repository.NewSectionRepository(db)
+	userService := services.NewUserService(userRepository)
 	jwtService := services.NewJWTService()
-	// personService := services.NewPersonService(personRepository)
-	authHandler := handler.NewAuthHandler(userService, jwtService)
+	personService := services.NewPersonService(personRepository)
+	userRolesService := services.NewUserRolesServices(userRolesRepository)
+	sectionsService := services.NewSectionsServices(sectionsRepository)
+	authHandler := handler.NewAuthHandler(userService, jwtService, personService, userRolesService, sectionsService)
 	return []helper.Route{
 		{
 			Method:  "POST",

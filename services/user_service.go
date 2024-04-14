@@ -1,6 +1,7 @@
 package services
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -13,18 +14,17 @@ import (
 
 type UserService interface {
 	IsExist(username entity.Users) bool
-	RegisterUser(request request.UserRegisterRequest) (entity.Users, error)
+	RegisterUser(request request.UserRegisterRequest, personID uint64) (entity.Users, error)
 	VerifyCredential(request request.AuthLoginRequest) interface{}
 	GetUser(request request.UserRequest) (entity.Users, error)
 }
 
 type userService struct {
-	userRepository   repository.UserRepository
-	personRepository repository.PersonRepository
+	userRepository repository.UserRepository
 }
 
-func NewUserService(userRepository repository.UserRepository, personRepository repository.PersonRepository) *userService {
-	return &userService{userRepository, personRepository}
+func NewUserService(userRepository repository.UserRepository) *userService {
+	return &userService{userRepository}
 }
 
 func (s *userService) IsExist(username entity.Users) bool {
@@ -32,7 +32,7 @@ func (s *userService) IsExist(username entity.Users) bool {
 	return err != nil
 }
 
-func (s *userService) RegisterUser(request request.UserRegisterRequest) (entity.Users, error) {
+func (s *userService) RegisterUser(request request.UserRegisterRequest, personID uint64) (entity.Users, error) {
 	user := entity.Users{}
 	person := entity.Persons{}
 	err := smapping.FillStruct(&user, smapping.MapFields(&request))
@@ -43,11 +43,7 @@ func (s *userService) RegisterUser(request request.UserRegisterRequest) (entity.
 	if err != nil {
 		panic(err.Error())
 	}
-	newPerson, err := s.personRepository.CreatePerson(person)
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
-	user.PersonID = newPerson.ID
+	user.PersonID = personID
 	user.Password = string(hashedPassword)
 	user.CreatedAt = time.Now()
 	newUser, err := s.userRepository.CreateUser(user)
@@ -62,6 +58,7 @@ func (s *userService) VerifyCredential(request request.AuthLoginRequest) interfa
 	err := smapping.FillStruct(&user, smapping.MapFields(&request))
 	smapError(err)
 	result, err := s.userRepository.GetUser(user)
+	fmt.Println(request)
 	if err != nil {
 		return false
 	} else {

@@ -1,5 +1,5 @@
 package request
 
-type SectionRequest struct{
-	
+type SectionRequest struct {
+	ID uint64 `json:"id"`
 }

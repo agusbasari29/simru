@@ -15,9 +15,14 @@ func (r UserRoutes) Route() []helper.Route {
 	db := database.SetupDBConnection()
 	userRepository := repository.NewUserRepository(db)
 	personRepository := repository.NewPersonRepository(db)
-	userService := services.NewUserService(userRepository, personRepository)
+	userRolesRepository := repository.NewUserRoleRepository(db)
+	sectionsRepository := repository.NewSectionRepository(db)
+	userService := services.NewUserService(userRepository)
 	jwtService := services.NewJWTService()
-	userHandler := handler.NewUserHandler(userService, jwtService)
+	personService := services.NewPersonService(personRepository)
+	userRolesServices := services.NewUserRolesServices(userRolesRepository)
+	sectionsServices := services.NewSectionsServices(sectionsRepository)
+	userHandler := handler.NewUserHandler(userService, jwtService, personService, userRolesServices, sectionsServices)
 	return []helper.Route{
 		{
 			Method:  "GET",
