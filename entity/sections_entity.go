@@ -6,5 +6,5 @@ type Sections struct {
 	gorm.Model
 	ID          uint64 `gorm:"primaryKey;autoIncrement"`
 	SectionName string
-	Authority string
+	Authority   string
 }

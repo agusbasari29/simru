@@ -1,0 +1,21 @@
+3 Aktor yang terlibat
+
+#P2AK3 = Perusahaan Pengguna Alat K3
+#IPAK3 = Instansi Pemeriksa dan Penguji Kelayakan Alat K3
+#Disnaker = Dinas Ketenagakerjaan Tingkat Provinsi 
+
+Penjelasan Diagram alur 
+Garis 1 dua arah. 
+1. Permohonan Riksa Uji dari P2AK3 Ke IPAK3 
+2. IPAK3 Menindaklanjuti Permohonan dan Koordinasi Teknis ( Nego Harga & Informasi List Alat yang akan diuji) dengan Perusahaan
+3. Konfirmasi informasi Pelaksanaan Riksa Uji -- dengan menyiapkan
+5. Pelaksanaan Riksa Uji --> Output LHPP Sementara 
+
+Garis 2 dua arah. 
+4. Memberikan Konfirmasi Informasi Pelaksanaan Riksa uji
+6. Menyerahkan LHPP Sementara ke Disnaker Validator
+7. Koordinasi Hasil LHPP --> Output LHPP FINAL
+8. Menyerahkan LHPP Final ke IPAK3
+
+Garis 3.   
+9. Menyerahkan Suket Final ke P2AK3
