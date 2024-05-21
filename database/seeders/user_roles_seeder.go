@@ -16,75 +16,75 @@ func UserRoleSeederUp() {
 	seeders := []userRolesSeeder{
 		{
 			Role:      "101",
-			RoleName:  "Pimpinan P2AK3",
+			RoleName:  "Pimpinan Perusahaan/CEO",
 			SectionID: 1,
 		}, {
 			Role:      "102",
-			RoleName:  "Admin P2AK3",
+			RoleName:  "PIC HR",
 			SectionID: 1,
 		}, {
 			Role:      "103",
-			RoleName:  "PIC P2AK3",
+			RoleName:  "PIC HSE",
 			SectionID: 1,
 		}, {
 			Role:      "201",
-			RoleName:  "Pimpinan Inspector K3 (PIPK3)",
+			RoleName:  "Pimpinan",
 			SectionID: 2,
 		}, {
 			Role:      "202",
-			RoleName:  "TU IPK3",
+			RoleName:  "Staf TU",
 			SectionID: 2,
 		}, {
 			Role:      "203",
-			RoleName:  "Inspector K3 (IK3)",
+			RoleName:  "Pemeriksa K3",
 			SectionID: 2,
 		}, {
 			Role:      "204",
-			RoleName:  "Asisten IK3",
+			RoleName:  "Staf Pemeriksa K3",
 			SectionID: 2,
 		}, {
 			Role:      "301",
-			RoleName:  "Waslis K3 (Atwaslis K3)",
+			RoleName:  "Pimpinan",
 			SectionID: 3,
 		}, {
 			Role:      "302",
-			RoleName:  "Pengawas Spesialis K3 (Waslis K3)",
+			RoleName:  "Marketing",
 			SectionID: 3,
 		}, {
 			Role:      "303",
-			RoleName:  "Admin Waslis K3",
+			RoleName:  "Admin",
 			SectionID: 3,
 		}, {
 			Role:      "304",
-			RoleName:  "Staf Waslis K3",
+			RoleName:  "Ahli K3",
+			SectionID: 3,
+		}, {
+			Role:      "305",
+			RoleName:  "Asisten Ahli K3",
 			SectionID: 3,
 		}, {
 			Role:      "401",
-			RoleName:  "Kadis",
+			RoleName:  "Spesialis K3 Pemeriksa",
 			SectionID: 4,
 		}, {
 			Role:      "402",
-			RoleName:  "Subkord K3",
+			RoleName:  "Waslis",
 			SectionID: 4,
 		}, {
 			Role:      "403",
-			RoleName:  "TU Valak3",
+			RoleName:  "Asisten Waslis",
 			SectionID: 4,
 		}, {
 			Role:      "404",
-			RoleName:  "Valak3",
-			SectionID: 4,
-		}, {
-			Role:      "405",
-			RoleName:  "Asisten Valak3",
+			RoleName:  "Staf TU",
 			SectionID: 4,
 		}, {
 			Role:      "501",
-			RoleName:  "Pimpinan BP",
+			RoleName:  "Kabid",
 			SectionID: 5,
 		}, {
 			Role:      "502",
-			RoleName:  "TU BP",
+			RoleName:  "Admin",
 			SectionID: 5,
 		},
 	}

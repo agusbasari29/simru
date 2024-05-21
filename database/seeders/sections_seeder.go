@@ -14,20 +14,20 @@ type sectionSeeders struct {
 func SectionSeedersUp() {
 	seeders := []sectionSeeders{
 		{
-			SectionName: "PPAK3",
-			Authority:   "Customer",
+			SectionName: "Pemohon",
+			Authority:   "P2AK3",
 		}, {
-			SectionName: "IPK3",
-			Authority:   "Vendor/PJK3",
+			SectionName: "Balai K3",
+			Authority:   "IPAK3",
 		}, {
-			SectionName: "UNWASLIS_K3",
-			Authority:   "Pemeriksa dari Pemerintah",
+			SectionName: "PJK3",
+			Authority:   "IPAK3",
 		}, {
-			SectionName: "VALAK3",
-			Authority:   "Pemerintah sebagai Validator",
+			SectionName: "Pemeriksa",
+			Authority:   "Disnaker",
 		}, {
-			SectionName: "BP",
-			Authority:   "Badan Perijinan Provinsi",
+			SectionName: "Validator",
+			Authority:   "Disnaker",
 		},
 	}
 	section := entity.Sections{}
@@ -39,9 +39,16 @@ func SectionSeedersUp() {
 	}
 }
 
-// Summary
+// Summary V0
 // A. PPAK3 (Customer)
 // B. IPK3 ( vendor/pjk3)
 // C. UNWASLIS_K3 (Pemeriksa dari Pemerintah)
 // D. VALAK3 (Pemerintah sebagai Validator)
 // E. BP (Badan Perijinan Provinsi)
+
+// Summary V1
+// A. P2AK3
+// B. IPAK3 - Balai K3
+// C. IPAK3 - PJK3
+// D. Disnaker - Pemeriksa
+// E. Disnaker - Validator

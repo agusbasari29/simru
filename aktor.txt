@@ -1,0 +1,32 @@
+3. P2AK3 ( Perusahaan Pengguna Alat K3)
+- Pimpinan Perushaaan/CEO
+- PIC HR
+- PIC HSE
+
+
+4. IPAK3 ( Instansi Pemeriksa dan Penguji Alat K3 )
+- Balai K3
+ # Pimpinan
+ # Staf Tu
+ # Pemeriksa K3
+ # Staf Pemeriksa K3
+
+- PJK3 
+ # Pimpinan
+ # Marketing
+ # Admin
+ # Ahli K3
+ # Asisten Ahli K3
+
+5. Disnaker ( Sebagai Validator )
+- Kadis
+ # Kabid
+ # Admin Disnaker
+
+Pengawas spesialis K3
+ # Spesialis K3 Pemeriksa
+
+- Ka Spesialis
+ # Waslis
+ # Asisten Waslis
+ # Staf TU
