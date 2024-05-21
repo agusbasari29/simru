@@ -19,3 +19,14 @@ Garis 2 dua arah.
 
 Garis 3.   
 9. Menyerahkan Suket Final ke P2AK3
+
+
+Breakdown
+1. Permohonan Riksa Uji dari P2AK3 ke IPAK3
+    - Login as P2AK3 role
+        - Feature Login
+    - Make a submission form
+        - Form Permohonan Riksa Uji sesuai kategori alat K3
+        - 
+
+    - 
